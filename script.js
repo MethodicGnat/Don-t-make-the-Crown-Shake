@@ -5,7 +5,6 @@ good ending = bro is the funniest guy you'll ever meet
 true ending = unlock freakmasta
 */
 
-
 const image = document.getElementById("image");
 const caption = document.getElementById("caption");
 const heading = document.querySelector("h1");
@@ -93,22 +92,27 @@ let neglectRoute2 = {
 let babysitRoute1 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
     text : ";babysitRoute1",
-    choices : ["gank lane", "keep farming"]
+    choices : ["Gank", "Keep farming"]
 }
 
 let hoverRoute1 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
     text : ";hoverRoute1",
-    choices : ["invade enemy territory", "take Crownie's resources"]
+    choices : ["Move forward"]
 } 
+
+let hoverRoute2 = {
+    image: "images\\pexels-octoptimist-7042390.jpg",
+    text : "hoverRoute2",
+    choices : ["invade enemy territory", "take Crownie's resources"]
+}
 
 let smiteRoute1 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
     text : "You quickly smite Crownie's cannons, but all of a sudden the game pauses<br>" +
     "CROWNIE LEFT THE GAME!",
-    choices : ["L"] 
+    choices : ["What did you expect?"] 
 }
-
 
 let stealRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
@@ -191,7 +195,7 @@ let finalFightRoute4 = {
 let dropRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
     text : "Really man",
-    choices : ["ur auntie", "ur uncle"]
+    choices : ["???"]
 };
 
 let dropRoute2 = {
@@ -221,7 +225,98 @@ let carriedRoute2 = {
     choices : ["I BELIEVE IN WITCHCRAFT!1!!"]
 }
 
+let invadeRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "invadeRoute1",
+    choices : ["Move forward"]
+}
+
+let invadeRoute2 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "invadeRoute2",
+    choices : ["Let's dance", "ambush"]
+}
+
+let danceRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "danceRoute1",
+    choices : ["Keep dancing"]
+}
+
+let danceRoute2 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "danceRoute2",
+    choices : ["Kinda BM ngl"]
+}
+
+let ambushRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "ambushRoute1",
+    choices : ["GG"]
+}
+
+let gankRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "gankRoute1",
+    choices : ["Move forward"]
+}
+
+let gankRoute2 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "gankRoute2",
+    choices : ["Fight", "Hide in bush"]
+}
+
+let fightAdcRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "adcRoute",
+    choices : ["ITS THE AVENGERS"]
+}
+
+let hideMoreRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "hideMoreRoute1",
+    choices : ["Jump out"]
+}
+
+let hideMoreRoute2 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "hideMoreRoute2",
+    choices : ["Move forward"]
+}
+
+let farmingRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "farmingRoute1",
+    choices : ["Move forward"]
+}
+
+let farmingRoute2 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "farmingRoute2",
+    choices : ["Return to base", "Initiate a base race"]
+}
+
+let baseRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "baseRoute1",
+    choices : ["FF"]
+}
+
+let backDoorRoute1 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "backDorrRoute1",
+    choices : ["Move forward"]
+}
+
+let backDoorRoute2 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "backDorrRoute2",
+    choices : ["Not even close"]
+}
+
 //scene groups
+// "null" is in place of the appropriate ending
 let introScene = [introRoom];
 let startScene = [startingRoom];
 let trollScene = [trollRoute1, trollRoute2, trollRoute3];
@@ -229,13 +324,23 @@ let neglectScene = [neglectRoute1, neglectRoute2];
 let stealScene = [stealRoute1];
 let missedScene = [missedRoute1, missedRoute2];
 let stoleScene = [stoleRoute1, stoleRoute2, stoleRoute3];
-let dropScene = [dropRoute1];
+let dropScene = [dropRoute1, dropRoute2, null];
 let babysitScene = [babysitRoute1];
-let hoverScene = [hoverRoute1];
+let hoverScene = [hoverRoute1, hoverRoute2];
 let finalFightScene = [finalFightRoute1, finalFightRoute2, finalFightRoute3, finalFightRoute4, null];
 let evadeScene = [evadeRoute1, null];
-let foolScene = [foolRoute1];
-let carriedScene = [carriedRoute1, carriedRoute2]
+let foolScene = [foolRoute1, null];
+let carriedScene = [carriedRoute1, carriedRoute2, null];
+let smiteScene = [smiteRoute1, null];
+let invadeScene = [invadeRoute1, invadeRoute2];
+let danceScene = [danceRoute1, danceRoute2, null];
+let ambushScene = [ambushRoute1, null];
+let gankScene = [gankRoute1, gankRoute2];
+let fightAdcScene = [fightAdcRoute1, null];
+let farmingScene = [farmingRoute1, farmingRoute2];
+let baseScene = [baseRoute1, null];
+let backDoorScene = [backDoorRoute1, backDoorRoute2, null];
+let hideMoreScene = [hideMoreRoute1, hideMoreRoute2, null];
 
 //ending objects
 let goodEnding = {
@@ -275,8 +380,20 @@ let storyNodes = [
     goodEnding,
     trueEnding,
     foolScene,
-    carriedScene
+    carriedScene,
+    smiteScene,
+    invadeScene,
+    danceScene,
+    ambushScene,
+    gankScene,
+    fightAdcScene,
+    hideMoreScene,
+    farmingScene,
+    baseScene,
+    backDoorScene
 ];
+
+let endingNodes = [goodEnding, badEnding, trueEnding];
 
 function displayNode(node) {
     /*
@@ -330,14 +447,15 @@ function displayNode(node) {
 
 function displayEndingNode(node) {
     resetChoices();
+    current_scene = node;
+    restartBttn.hidden = false;
     image.src = node.image;
     caption.innerHTML = node.text;
     heading.innerHTML = node.heading;
-    treeNodes.get(current_scene).children[0] = node;
-    
 }
 
 function moveBack() {
+    if (endingNodes.includes(endingNodes)) return;
     if (path.length > 1) {
         path.pop();
         let prevPath = path[path.length - 1];
@@ -352,8 +470,9 @@ function reset() {
     good_choice_count = 0;
     path = [];
     current_scene = introScene;
-    //jngOutcome = JNG_OUTCOMES[Math.round(Math.random() - 0.1)];
-    jngOutcome = JNG_OUTCOMES[0];
+    jngOutcome = JNG_OUTCOMES[Math.round(Math.random() - 0.1)];
+    restartBttn.hidden = true;
+    heading.textContent = "Don't make the Crown Shake";
     chooseStealRoute();
     displayNode(introScene);
 }
@@ -391,6 +510,7 @@ function treeify() {
     }
     for (let i = 0; i < treeNodes.size; i++) {
         let node = treeNodes.get(storyNodes[i]);
+        node.root = treeNodes.get(startScene);
         if (node.children.length < 1) {
             node.leaf = true;
         }
@@ -423,7 +543,7 @@ function skipScene() {
 
 class Tree {
     constructor(node, leaf = false, children = [], parent = null, isGood = false) {
-        this.root = startingRoom;
+        this.root = startScene;
         this.leaf = leaf;
         this.children = children;
         this.parent = parent;
@@ -441,14 +561,24 @@ const ROUTES = [
     [trollScene, dropScene],
     [neglectScene, babysitScene],
     [neglectScene, hoverScene],
+    [hoverScene, invadeScene],
+    [hoverScene, smiteScene],
+    [invadeScene, danceScene],
+    [invadeScene, ambushScene],
     [stealScene, undefined], //value will be determined by chooseStealRoute function
     [stoleScene, evadeScene],
     [stoleScene, finalFightScene],
     [missedScene, foolScene],
-    [missedScene, carriedScene]
+    [missedScene, carriedScene],
+    [babysitScene, gankScene],
+    [babysitScene, farmingScene],
+    [farmingScene, baseScene],
+    [farmingScene, backDoorScene],
+    [gankScene, fightAdcScene],
+    [gankScene, hideMoreScene]
 ];
 
-const GOOD_SCENES = [trollScene, stoleScene];
+const GOOD_SCENES = [trollScene, stoleScene, danceScene, carriedScene];
 const TRUE_PATH = [introScene, startScene, trollScene, stealScene, stoleScene, finalFightScene];
 
 //event listeners
@@ -497,7 +627,4 @@ window.addEventListener("load", function() {
 
 skipBttn.addEventListener("click", skipScene);
 
-restartBttn.addEventListener("click", function() {
-    reset();
-});
-
+restartBttn.addEventListener("click", reset);

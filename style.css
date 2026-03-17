@@ -1,15 +1,173 @@
-body {
-    display: grid;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    line-height: 10px;
-    /*font-family:'Gill Sans';*/
-    font-size: 13px;
+/* Pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-img {
-    justify-self: center;
-    max-width: 400px;
-    max-height: 400px;
+body {
+  background: white;
+  color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🎬 Cinematic bars */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 12vh;
+  background: #000;
+  z-index: 10;
+}
+
+body::before { top: 0; }
+body::after { bottom: 0; }
+
+/* Title */
+h1 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #921d1d;
+}
+
+/* 🎥 Image fly-in */
+#image {
+  width: 420px;
+  height: 400px;
+  max-width: 90%;
+  border: 4px solid #fff;
+  image-rendering: pixelated;
+
+  opacity: 0;
+  transform: translateY(80px) scale(0.9);
+
+  animation:
+    flyIn 0.4s ease-out forwards,
+    flash 0.15s ease 0.4s;
+}
+
+/* Fly-in */
+@keyframes flyIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Flash */
+@keyframes flash {
+  0% { filter: brightness(3); }
+  100% { filter: brightness(1); }
+}
+
+/* 📝 Caption (delayed) */
+#caption {
+  max-width: 600px;
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.8;
+  margin: 20px 0;
+
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* 🎮 Choices (after text) */
+#choices-container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+  justify-content: center;
+
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.9s;
+}
+
+/* Buttons */
+#choices-container button {
+  padding: 14px 18px;
+  border: 3px solid #fff;
+  background: #111;
+  color: #fff;
+  font-size: 0.65rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#choices-container button:hover {
+  background: #fff;
+  color: #000;
+}
+
+#choices-container button:active {
+  transform: translateY(3px);
+}
+
+/* Layout logic */
+#choices-container button:only-child {
+  margin-right: auto;
+}
+
+#choices-container:has(button:nth-child(2):last-child) {
+  justify-content: space-between;
+}
+
+#choices-container:has(button:nth-child(3)) {
+  flex-wrap: wrap;
+}
+
+/* 🎯 Skip button (appears with choices) */
+#skipBttn {
+  margin-top: 10px;
+  align-self: flex-end;
+
+  padding: 12px 24px;
+  border: 3px solid #ff4d4d;
+  background: #000;
+  color: #ff4d4d;
+  font-size: 0.55rem;
+  cursor: pointer;
+}
+
+#skipBttn:hover {
+  background: #ff4d4d;
+  color: #000;
+}
+
+/* 🔁 Restart (Quarry style) */
+#restartBttn {
+
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  opacity: 0;
+}
+
+/* When unhidden, it fades in */
+#restartBttn:not([hidden]) {
+  animation: fadeIn 0.6s forwards;
+}
+
+/* Fade */
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
