@@ -1,3 +1,5 @@
+/* css written by Chat-GPT */
+
 /* Pixel font */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -20,7 +22,7 @@ body {
   overflow: hidden;
 }
 
-/* 🎬 Cinematic bars */
+/* Cinematic bars */
 body::before,
 body::after {
   content: '';
@@ -42,7 +44,7 @@ h1 {
   color: #921d1d;
 }
 
-/* 🎥 Image fly-in */
+/* Image fly-in */
 #image {
   width: 420px;
   height: 400px;
@@ -72,7 +74,7 @@ h1 {
   100% { filter: brightness(1); }
 }
 
-/* 📝 Caption (delayed) */
+/* Caption (delayed) */
 #caption {
   max-width: 600px;
   text-align: center;
@@ -131,7 +133,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-/* 🎯 Skip button (appears with choices) */
+/* Skip button (appears with choices) */
 #skipBttn {
   margin-top: 10px;
   align-self: flex-end;
@@ -149,7 +151,7 @@ h1 {
   color: #000;
 }
 
-/* 🔁 Restart (Quarry style) */
+/* Restart (Quarry style) */
 #restartBttn {
 
   background: none;

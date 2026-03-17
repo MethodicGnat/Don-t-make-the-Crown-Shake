@@ -85,7 +85,8 @@ let neglectRoute1 = {
 
 let neglectRoute2 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
-    text : ";neglectRoute2",
+    text : "However now Crownie claims that he has priority, but he's made the wrong call before<br>" +
+    "will you give in or keep playing as is?",
     choices : ["Get another teammate to babysit him", "Start hovering around him more"]
 };
 
@@ -346,8 +347,8 @@ let hideMoreScene = [hideMoreRoute1, hideMoreRoute2, null];
 let goodEnding = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
     heading : "Good Ending",
-    text : "You won the game and Crownie is happy!<br>" +
-    "However, you feel like you could've done better..."
+    text : "You won the game and Crownie hasn't raged!<br>" +
+    "However, you feel like he could've been happier..."
 }
 
 let badEnding = {
@@ -447,7 +448,6 @@ function displayNode(node) {
 
 function displayEndingNode(node) {
     resetChoices();
-    current_scene = node;
     restartBttn.hidden = false;
     image.src = node.image;
     caption.innerHTML = node.text;
@@ -488,7 +488,7 @@ function resetChoices() {
 
 
 function evaluator() {
-    if (good_choice_count > 3) displayEndingNode(goodEnding);
+    if (GOOD_SCENES.includes(current_scene)) displayEndingNode(goodEnding);
     else if (path.toString() === TRUE_PATH.toString()) displayEndingNode(trueEnding);
     else displayEndingNode(badEnding);
 }
@@ -578,7 +578,7 @@ const ROUTES = [
     [gankScene, hideMoreScene]
 ];
 
-const GOOD_SCENES = [trollScene, stoleScene, danceScene, carriedScene];
+const GOOD_SCENES = [trollScene, stoleScene, danceScene, carriedScene, backDoorScene, hideMoreScene];
 const TRUE_PATH = [introScene, startScene, trollScene, stealScene, stoleScene, finalFightScene];
 
 //event listeners
