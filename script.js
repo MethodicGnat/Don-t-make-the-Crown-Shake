@@ -15,20 +15,9 @@ const skipBttn = document.getElementById("skipBttn");
 //story constants
 const JNG_OUTCOMES = ["STOLE", "MISSED"];
 
-//enums
-let Ending = {
-    BAD : 0,
-    GOOD : 1,
-    TRUE : 2
-};
-
 //vars
-let current_ending; //is of type Ending
 let current_scene; 
-let path = [];
-let bad_choice_count;
-let good_choice_count;
-//var jngOutcome= JNG_OUTCOMES[Math.round(Math.random() - 0.1)];
+let path = []; 
 let jngOutcome;
 let treeNodes = new Map();
 let nodeIdx = 0;
@@ -36,10 +25,7 @@ let nodeIdx = 0;
 //node initiaization
 
 //only binary choices are allowed
-// the first index choice is a good choice
-// the second index choice is a bad choice
 // a certain sequence of choices allows a true ending
-
 
 //individual scenes
 let introRoom = {
@@ -47,7 +33,7 @@ let introRoom = {
     text : "You have a 4-hour scrim session with Crownshake, but since you're a close teammate," +
     "you can call him Crownie.<br>" +
     "he's a nice guy, but there is a rule everyone and their mama should uphold around him:<br>" +
-    "Don't Make Him Rage.",
+    "Don't make him rage.",
     choices : ["START!"]
 };
 
@@ -86,31 +72,36 @@ let neglectRoute1 = {
 let neglectRoute2 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
     text : "However now Crownie claims that he has priority, but he's made the wrong call before<br>" +
-    "will you give in or keep playing as is?",
+    "will you hover him or keep playing as is?",
     choices : ["Get another teammate to babysit him", "Start hovering around him more"]
 };
 
 let babysitRoute1 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
-    text : ";babysitRoute1",
+    text : "Refusing to spend another second on Crownie, you convince another teammate to babysit him.<br>" +
+    "As you continue playing the game, now both Crownie and the other teamamte insist that a play can be made by them<br>" +
+    "Will you give in or keep farming resources?",
     choices : ["Gank", "Keep farming"]
 }
 
 let hoverRoute1 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
-    text : ";hoverRoute1",
+    text : "You give into Crownie and wait in a bush to ambush the enemy team",
     choices : ["Move forward"]
 } 
 
 let hoverRoute2 = {
     image: "images\\pexels-octoptimist-7042390.jpg",
-    text : "hoverRoute2",
+    text : "Anndddd nobody was in a position to get ambushed.<br>" +
+    "You've wasted a lot of time and lost a lot of resources<br>" +
+    "How will you recover?",
     choices : ["invade enemy territory", "take Crownie's resources"]
 }
 
 let smiteRoute1 = {
     image : "images\\pexels-octoptimist-7042390.jpg",
-    text : "You quickly smite Crownie's cannons, but all of a sudden the game pauses<br>" +
+    text : "To not take away too much, you decide to only take the most bountiful resource<br>" +
+    "You quickly smite Crownie's cannon, but all of a sudden the game pauses<br>" +
     "CROWNIE LEFT THE GAME!",
     choices : ["What did you expect?"] 
 }
@@ -156,7 +147,7 @@ let stoleRoute2 = {
 
 let stoleRoute3 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "BUT YOUR TOP IS FIGHTING! If you flee, there is a slim chance you can defend.<br>" +
+    text : "BUT ONE OF YOUR TEAMMATES IS FIGHTING! If you flee, there is a slim chance you can defend.<br>" +
     "<br>HOWEVER, if you fight and survive, you could win the game, but if you die..." +
     "<br>The outcome of the game is in your hands.",
     choices : ["Evade", "Go in"]
@@ -181,7 +172,7 @@ let finalFightRoute3 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
     text : "Your teammates health bars plummet in unison<br>" +
     "In shame, you close your eyes and pray the enemy just ends the game quickly<br>" +
-    "that's until you hear \"An ally has been slain\"<br>",
+    "that's until you hear \"An enemy has been slain\"<br>",
     choices : ["it was a good fight ;D"]
 }
 
@@ -215,104 +206,136 @@ let evadeRoute1 = {
 
 let carriedRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "Neme",
+    text : "Knowing that nerves can take over and do the worst, you decide to play safe<br>" +
+    "with how strong the enemy team is though, being safe can only do so little<br>" +
+    "but that is when you notice your team is somehow even in numbers",
     choices : ["Is this witchcraft?"]
 }
 
 let carriedRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "<br>" +
+    text : "The enemy teams health bars keep dwindling, and that's when Rift Alexa announces Neme (your other teammate) has a triple kill!<br>" +
     "Neme saves the game and your incoming permaban for trolling :)",
     choices : ["I BELIEVE IN WITCHCRAFT!1!!"]
 }
 
 let invadeRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "invadeRoute1",
+    text : "Instead of taking Crownie's resources, you decide to sneak into the enemy jungle to steal their camps",
     choices : ["Move forward"]
 }
 
 let invadeRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "invadeRoute2",
+    text : "As you creep through their jungle, you spot the enemy near one of their camps.<br>" +
+    "how will you choose to handle this?",
     choices : ["Let's dance", "ambush"]
 }
 
 let danceRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "danceRoute1",
+    text : "You leap out of the enemy bush and immediately start dancing on them<br>" +
+    "The enemy player, refusing to be danced on, dances back<br>" +
+    "you've successfully initiated a dance battle.",
     choices : ["Keep dancing"]
 }
 
 let danceRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "danceRoute2",
+    text : "You both are having a good time having a dance battle<br>" +
+    "However all of a sudden the enemy just explodes!<br>" +
+    "Your teammate saw the enemy seemingly idle and swiftly assassinated them.",
     choices : ["Kinda BM ngl"]
 }
 
 let ambushRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "ambushRoute1",
+    text : "You leap out of the enemy bush and try attacking the enemy<br>" +
+    "They're startled and it seems like you have a chance<br>" +
+    "But before you can even consider celebrating your efforts, you are met with 3 other enemy teamamtes, making you a free kill",
     choices : ["GG"]
 }
 
 let gankRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "gankRoute1",
+    text : "With Crownie AND another teammate suggesting an opportunity, you decide to pay the enemy players near them a visit<br>" +
+    "Thankfully, you are fortunate to see one of the strongest enemy team members on the team alone<br>" +
+    "What kind of team just leaves their most valuable asset out in the open?",
     choices : ["Move forward"]
 }
 
 let gankRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "gankRoute2",
+    text : "Will you take this perfect opportunity, or wait to be sure?",
     choices : ["Fight", "Hide in bush"]
 }
 
 let fightAdcRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "adcRoute",
+    text : "You quickly rush towards the strongest enemy player!<br>" +
+    "Before they can get away you stun them, creating the perfect gank... but nobody on your team is following up<br>" +
+    "That's when you notice just from the edge of your vision that the entire enemy team is prepared to defend this player.",
     choices : ["ITS THE AVENGERS"]
 }
 
 let hideMoreRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "hideMoreRoute1",
+    text : "You nearly scold yourself for not taking the perfect opportunity when you notice the entire enemy team appear before you<br>" +
+    "Once you've seen they've left, and the only one there is the strongest enemy team member, you know you won't hesitate this time.",
     choices : ["Jump out"]
 }
 
 let hideMoreRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "hideMoreRoute2",
+    text : "Siezing the moment, you quickly make work of the enemy.<br>" +
+    "Even if the enemy team wanted to react, it would be too late.<br>" +
+    "From the enemy players death, you and your team rush the enemy nexus!",
     choices : ["Move forward"]
 }
 
 let farmingRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "farmingRoute1",
+    text : "You selfishly decide to keep playing for yourself.<br>" +
+    "And like always, karma comes back to bite you.<br>" +
+    "You may have not chosen to make a play for your teammates, but the enemy decided to make a play for their's." +
+    "The enemy team pushes into your defenses.",
     choices : ["Move forward"]
 }
 
 let farmingRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "farmingRoute2",
+    text : "The moment is dire, and any misjudgement can and will immediately be punished<br>" +
+    "You've made it this far, but you wouldn't want to make Crownie mad on the final stretch.<br>" +
+    "Your game, your call.",
     choices : ["Return to base", "Initiate a base race"]
 }
 
 let baseRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "baseRoute1",
+    text : "Seeing how playing stable has gotten you this far, you take the safest choice and return to base.<br>" +
+    "What you didn't consider, however, is the time it will take to get back...<br>"+
+    "As you hurry as fast as you can, you can't help but notice your nexus is already exposed<br>No matter how hard you try, you failed to prevent the inevitable.",
     choices : ["FF"]
 }
 
 let backDoorRoute1 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "backDorrRoute1",
+    text : "Your team continues to beg for your return, but you realize that this is an all or nothing situation.<br>" +
+    "You continue pressuring the enemy base.",
     choices : ["Move forward"]
 }
 
 let backDoorRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "backDorrRoute2",
+    text : "Did you truly make the right choice?<br>As you reach the nexus, you anxiously attack it, as fear rings through your body.<br>" +
+    "You and the enemy team have near similar pace in hitting the Nexus<br>" +
+    "Curious of how close the match truly was, you review your nexus's health right before the game ended",
+    choices : ["See results"]
+}
+
+let backDoorRoute3 = {
+    image : "images\\pexels-orlovamaria-4947011.jpg",
+    text : "1  H E A L T H",
     choices : ["Not even close"]
 }
 
@@ -340,21 +363,22 @@ let gankScene = [gankRoute1, gankRoute2];
 let fightAdcScene = [fightAdcRoute1, null];
 let farmingScene = [farmingRoute1, farmingRoute2];
 let baseScene = [baseRoute1, null];
-let backDoorScene = [backDoorRoute1, backDoorRoute2, null];
+let backDoorScene = [backDoorRoute1, backDoorRoute2, backDoorRoute3, null];
 let hideMoreScene = [hideMoreRoute1, hideMoreRoute2, null];
 
 //ending objects
 let goodEnding = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
     heading : "Good Ending",
-    text : "You won the game and Crownie hasn't raged!<br>" +
-    "However, you feel like he could've been happier..."
+    text : "You won the game!<br>" +
+    "all your teammates"
 }
 
 let badEnding = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
     heading : "Bad Ending",
-    text : ";asdfaefddd"
+    text : "Crownie is angry, and whether you think it's your fault or not, remember the rule:<br>" +
+    "Don't make him rage."
 }
 
 let trueEnding = {
@@ -446,6 +470,7 @@ function displayNode(node) {
     }
 }
 
+
 function displayEndingNode(node) {
     resetChoices();
     restartBttn.hidden = false;
@@ -453,6 +478,7 @@ function displayEndingNode(node) {
     caption.innerHTML = node.text;
     heading.innerHTML = node.heading;
 }
+
 
 function moveBack() {
     if (endingNodes.includes(endingNodes)) return;
@@ -465,6 +491,8 @@ function moveBack() {
         displayNode(prevPath); //must be scene
     }
 }
+
+
 function reset() {
     resetChoices();
     good_choice_count = 0;
@@ -532,6 +560,7 @@ function chooseStealRoute() {
             break;
     }
 }
+
 
 function skipScene() {
     //skip scene routes to a scene with choices that change scene
