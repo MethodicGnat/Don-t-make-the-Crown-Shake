@@ -287,7 +287,7 @@ let hideMoreRoute1 = {
 
 let hideMoreRoute2 = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
-    text : "Siezing the moment, you quickly make work of the enemy.<br>" +
+    text : "Seizing the moment, you quickly make work of the enemy.<br>" +
     "Even if the enemy team wanted to react, it would be too late.<br>" +
     "From the enemy players death, you and your team rush the enemy nexus!",
     choices : ["Move forward"]
@@ -371,7 +371,8 @@ let goodEnding = {
     image : "images\\pexels-orlovamaria-4947011.jpg",
     heading : "Good Ending",
     text : "You won the game!<br>" +
-    "all your teammates"
+    "All your teammates cheer for your victory...<br>" +
+    "All of them but Crownie... if only he could be happier."
 }
 
 let badEnding = {
