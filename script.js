@@ -154,14 +154,14 @@ let stoleRoute3 = {
 }
 
 let finalFightRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\penta.png",
     text : "You are one teammate down, and your team begins to lose hope<br>" +
     "But you want that win, and with your unwavering determination you get a double kill!",
     choices : ["Move forward"]
 }
 
 let finalFightRoute2 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\deathdying.png",
     text : "The thrill of winning overtakes you.<br>" +
     "As you turn to look at your teammates to congratulate their performance...Your vision goes gray <br>" + 
     "You've died",
@@ -169,7 +169,7 @@ let finalFightRoute2 = {
 }
 
 let finalFightRoute3 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\crownieeee.png",
     text : "Your teammates health bars plummet in unison<br>" +
     "In shame, you close your eyes and pray the enemy just ends the game quickly<br>" +
     "that's until you hear \"An enemy has been slain\"<br>",
