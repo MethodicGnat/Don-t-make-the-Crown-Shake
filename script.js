@@ -139,14 +139,14 @@ let stoleRoute1 = {
 };
 
 let stoleRoute2 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\exiting baron pit.png",
     text : "Now that you stole it... you need to get out<br>" +
     "the enemy team is still stronger than you cuz you trolled ¯\\_(ツ)_/¯",
     choices : ["•́ε•̀٥"]
 };
 
 let stoleRoute3 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\stealallsls.png",
     text : "BUT ONE OF YOUR TEAMMATES IS FIGHTING! If you flee, there is a slim chance you can defend.<br>" +
     "<br>HOWEVER, if you fight and survive, you could win the game, but if you die..." +
     "<br>The outcome of the game is in your hands.",
@@ -294,7 +294,7 @@ let hideMoreRoute2 = {
 }
 
 let farmingRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\stealallsls.png",
     text : "You selfishly decide to keep playing for yourself.<br>" +
     "And like always, karma comes back to bite you.<br>" +
     "You may have not chosen to make a play for your teammates, but the enemy decided to make a play for their's." +
@@ -303,7 +303,7 @@ let farmingRoute1 = {
 }
 
 let farmingRoute2 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\chinachinachina.png",
     text : "The moment is dire, and any misjudgement can and will immediately be punished<br>" +
     "You've made it this far, but you wouldn't want to make Crownie mad on the final stretch.<br>" +
     "Your game, your call.",
