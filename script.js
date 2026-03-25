@@ -113,7 +113,7 @@ let stealRoute1 = {
 };
 
 let missedRoute1 = {
-    image : "images\\Crownie wtv.PNG",
+    image : "images\\Sally.PNG",
     text : "YOU MISSED IT!",
     choices : ["F"]
 };
@@ -125,7 +125,7 @@ let missedRoute2 = {
 };
 
 let foolRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\gg.png",
     text : "As you see an angle on the enemy, you try to activate your ultimate ability, but...<br>" +
     "YOU HAVE NO MANA!<br>" +
     "You just threw the game",
@@ -133,7 +133,7 @@ let foolRoute1 = {
 };
 
 let stoleRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\steal.png",
     text : "YOU STOLE IT!",
     choices : ["LESS GOOOOO"]
 };
@@ -311,7 +311,7 @@ let farmingRoute2 = {
 }
 
 let baseRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\ggpt2.png",
     text : "Seeing how playing stable has gotten you this far, you take the safest choice and return to base.<br>" +
     "What you didn't consider, however, is the time it will take to get back...<br>"+
     "As you hurry as fast as you can, you can't help but notice your nexus is already exposed<br>No matter how hard you try, you failed to prevent the inevitable.",
@@ -319,14 +319,14 @@ let baseRoute1 = {
 }
 
 let backDoorRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\lol-farming.avif",
     text : "Your team continues to beg for your return, but you realize that this is an all or nothing situation.<br>" +
     "You continue pressuring the enemy base.",
     choices : ["Move forward"]
 }
 
 let backDoorRoute2 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\backdoor.jpg",
     text : "Did you truly make the right choice?<br>As you reach the nexus, you anxiously attack it, as fear rings through your body.<br>" +
     "You and the enemy team have near similar pace in hitting the Nexus<br>" +
     "Curious of how close the match truly was, you review your nexus's health right before the game ended",
@@ -334,7 +334,7 @@ let backDoorRoute2 = {
 }
 
 let backDoorRoute3 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\1healthnexxoos.png",
     text : "1  H E A L T H",
     choices : ["Not even close"]
 }
