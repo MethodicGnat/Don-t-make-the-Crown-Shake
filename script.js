@@ -154,7 +154,7 @@ let stoleRoute3 = {
 }
 
 let finalFightRoute1 = {
-    image : "images\\penta.png",
+    image : "images\\duble.png",
     text : "You are one teammate down, and your team begins to lose hope<br>" +
     "But you want that win, and with your unwavering determination you get a double kill!",
     choices : ["Move forward"]
