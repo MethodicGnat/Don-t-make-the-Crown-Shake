@@ -46,7 +46,7 @@ h1 {
 
 /* Image fly-in */
 #image {
-  width: 420px;
+  width: auto;
   height: 400px;
   max-width: 90%;
   border: 4px solid #fff;

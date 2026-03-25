@@ -29,7 +29,7 @@ let nodeIdx = 0;
 
 //individual scenes
 let introRoom = {
-    image : "images\\pexels-ekrulila-2810775.jpg",
+    image : "images\\Crownie ragebaiting.webp",
     text : "You have a 4-hour scrim session with Crownshake, but since you're a close teammate," +
     "you can call him Crownie.<br>" +
     "he's a nice guy, but there is a rule everyone and their mama should uphold around him:<br>" +
@@ -38,32 +38,32 @@ let introRoom = {
 };
 
 let startingRoom = {
-    image : "images\\pexels-ekrulila-2810775.jpg",
+    image : "images\\gold lead.PNG",
     text : "You're in game and your team has a dramatic lead.<br>How will you continue your performance?",
     choices : ["Troll", "Stop assisting Crownie"]
 };
 
 let trollRoute1 = {
-    image : "images\\pexels-octoptimist-3150918.jpg",
+    image : "images\\baron1.jpg",
     text : "You gave up your tempo and now your enemy has an advantage! They are now fighting a pivotal boss.<br>",
     choices : ["Move forward"]
 };
 
 let trollRoute2 = {
-    image : "images\\pexels-octoptimist-3150918.jpg",
+    image : "images\\baron2.jpg",
     text : "The objective is almost complete",
     choices : ["..."]
 };
 
 let trollRoute3 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\baron3.jpg",
     text: "If your team doesn't get this, the odds are completely flipped in the enemy teams favor<br>" +
     "What will you do?",
     choices : ["Try stealing it", "Give it up and pray"]
 };
 
 let neglectRoute1 = {
-    image : "images\\pexels-octoptimist-7042390.jpg",
+    image : "images\\Caedrel prayge.png",
     text : "You continue playing the game, except you're pretending Crownie doesn't exist.<br>" +
     "Thank goodness you were already playing well",
     choices : ["Move forward"]
@@ -99,7 +99,7 @@ let hoverRoute2 = {
 }
 
 let smiteRoute1 = {
-    image : "images\\pexels-octoptimist-7042390.jpg",
+    image : "images\\e.png",
     text : "To not take away too much, you decide to only take the most bountiful resource<br>" +
     "You quickly smite Crownie's cannon, but all of a sudden the game pauses<br>" +
     "CROWNIE LEFT THE GAME!",
@@ -107,13 +107,13 @@ let smiteRoute1 = {
 }
 
 let stealRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\Caedrel prayge.png",
     text : "You take the 50/50...",
     choices : ["Gamble"]
 };
 
 let missedRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\Crownie wtv.PNG",
     text : "YOU MISSED IT!",
     choices : ["F"]
 };
@@ -177,7 +177,7 @@ let finalFightRoute3 = {
 }
 
 let finalFightRoute4 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\feminist.jpg",
     text : "Rift Alexa (the game's announcer) then continues to announce a double kill<br>" +
     "You open your eyes to see CROWNIE IS DESTROYING THE ENEMY TEAM!<br>" +
     "He has completely WIPED the enemy team, and once he rushes the enemy nexus, Rift Alexa declares your team's victory!",
@@ -368,7 +368,7 @@ let hideMoreScene = [hideMoreRoute1, hideMoreRoute2, null];
 
 //ending objects
 let goodEnding = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\badge.png",
     heading : "Good Ending",
     text : "You won the game!<br>" +
     "All your teammates cheer for your victory...<br>" +
@@ -376,14 +376,14 @@ let goodEnding = {
 }
 
 let badEnding = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\truebadge.PNG",
     heading : "Bad Ending",
     text : "Crownie is angry, and whether you think it's your fault or not, remember the rule:<br>" +
     "Don't make him rage."
 }
 
 let trueEnding = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\snapshot.jpg",
     heading: "True Ending",
     text : "You've unlocked the freakmasta"
 }
