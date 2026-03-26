@@ -185,13 +185,13 @@ let finalFightRoute4 = {
 }
 
 let dropRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\ggggg.png",
     text : "Really man",
     choices : ["???"]
 };
 
 let dropRoute2 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\L.png",
     text : "You declined gambling?",
     choices : ["no way this is bad ending"]
 }
@@ -265,13 +265,13 @@ let gankRoute1 = {
 }
 
 let gankRoute2 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\alone.png",
     text : "Will you take this perfect opportunity, or wait to be sure?",
     choices : ["Fight", "Hide in bush"]
 }
 
 let fightAdcRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\rusheshdhfoi.png",
     text : "You quickly rush towards the strongest enemy player!<br>" +
     "Before they can get away you stun them, creating the perfect gank... but nobody on your team is following up<br>" +
     "That's when you notice just from the edge of your vision that the entire enemy team is prepared to defend this player.",
@@ -279,14 +279,14 @@ let fightAdcRoute1 = {
 }
 
 let hideMoreRoute1 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\hide in bush.png",
     text : "You nearly scold yourself for not taking the perfect opportunity when you notice the entire enemy team appear before you<br>" +
     "Once you've seen they've left, and the only one there is the strongest enemy team member, you know you won't hesitate this time.",
     choices : ["Jump out"]
 }
 
 let hideMoreRoute2 = {
-    image : "images\\pexels-orlovamaria-4947011.jpg",
+    image : "images\\rushinginging.png",
     text : "Seizing the moment, you quickly make work of the enemy.<br>" +
     "Even if the enemy team wanted to react, it would be too late.<br>" +
     "From the enemy players death, you and your team rush the enemy nexus!",
