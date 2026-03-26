@@ -17,6 +17,7 @@ const JNG_OUTCOMES = ["STOLE", "MISSED"];
 
 //vars
 let current_scene; 
+let isEnding = false;
 let path = []; 
 let jngOutcome;
 let treeNodes = new Map();
@@ -500,6 +501,7 @@ function reset() {
     path = [];
     current_scene = introScene;
     jngOutcome = JNG_OUTCOMES[Math.round(Math.random() - 0.1)];
+    isEnding = false;
     restartBttn.hidden = true;
     heading.textContent = "Don't make the Crown Shake";
     chooseStealRoute();
@@ -517,6 +519,7 @@ function resetChoices() {
 
 
 function evaluator() {
+    isEnding = !isEnding;
     if (GOOD_SCENES.includes(current_scene)) displayEndingNode(goodEnding);
     else if (path.toString() === TRUE_PATH.toString()) displayEndingNode(trueEnding);
     else displayEndingNode(badEnding);
