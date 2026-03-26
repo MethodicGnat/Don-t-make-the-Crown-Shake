@@ -483,7 +483,7 @@ function displayEndingNode(node) {
 
 
 function moveBack() {
-    if (endingNodes.includes(endingNodes)) return;
+    if (isEnding) return;
     if (path.length > 1) {
         path.pop();
         let prevPath = path[path.length - 1];
